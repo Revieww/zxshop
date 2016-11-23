@@ -4,6 +4,7 @@ package me.gacl;
 import java.util.List;
 
 import me.gacl.core.UserService;
+import me.gacl.core.redis.RedisService;
 import me.gacl.dao.UserDao;
 import me.gacl.entity.User;
 
@@ -18,11 +19,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class ProductTypeSpringTest {
 
 	@Autowired
-	private UserService userService;
+	private RedisService redisService;
 	
 	@Test
 	public void Test01(){
-		userService.save();
+		redisService.setValue("user", "你好");
+		System.out.println(redisService.getValue("user"));
 	}
 
 }

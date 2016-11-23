@@ -1,35 +1,53 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>me.gacl</groupId>
-    <artifactId>zxshop</artifactId>
-    <version>1.0-SNAPSHOT</version>
-  </parent>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>me.gacl</groupId>
+		<artifactId>zxshop</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
 
-  <artifactId>zxshop-service</artifactId>
-  <packaging>jar</packaging>
+	<artifactId>zxshop-service</artifactId>
+	<packaging>jar</packaging>
 
-  <name>zxshop-service</name>
-  <url>http://maven.apache.org</url>
-  <dependencies>
-      <dependency>
-       <groupId>me.gacl</groupId>
-       <artifactId>zxshop-common</artifactId>
-      <version>${project.version}</version>
-     </dependency>
-     <dependency>
-       <groupId>me.gacl</groupId>
-       <artifactId>zxshop-dao</artifactId>
-      <version>${project.version}</version>
-     </dependency>
-	<dependency>
-       <groupId>me.gacl</groupId>
-       <artifactId>zxshop-coreapi</artifactId>
-      <version>${project.version}</version>
-     </dependency>
-     
-   
-  </dependencies>
+	<name>zxshop-service</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
+		<dependency>
+			<groupId>me.gacl</groupId>
+			<artifactId>zxshop-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>me.gacl</groupId>
+			<artifactId>zxshop-dao</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>me.gacl</groupId>
+			<artifactId>zxshop-coreapi</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<!-- redis配置 -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-redis</artifactId>
+			<version>1.7.1.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.8.1</version>
+		</dependency>
+		
+		<!-- 邮箱 -->
+		<dependency>  
+            <groupId>javax.mail</groupId>  
+            <artifactId>mail</artifactId>  
+            <version>1.4.5</version>  
+        </dependency>
+
+	</dependencies>
 </project>
