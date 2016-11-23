@@ -18,6 +18,7 @@ public class UserController {
 	@RequestMapping("save")
 	public String save(){
 		userService.save();
+		System.out.println("测试");
 		return "success";
 	}
 }
