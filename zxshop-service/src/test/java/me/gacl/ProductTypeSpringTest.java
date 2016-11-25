@@ -3,8 +3,8 @@ package me.gacl;
 
 import java.util.List;
 
-import me.gacl.core.UserService;
 import me.gacl.core.redis.RedisService;
+import me.gacl.core.user.api.UserService;
 import me.gacl.dao.UserDao;
 import me.gacl.entity.User;
 

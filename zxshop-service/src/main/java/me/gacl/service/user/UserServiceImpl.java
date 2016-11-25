@@ -1,10 +1,10 @@
-package me.gacl.service;
+package me.gacl.service.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import me.gacl.core.UserService;
+import me.gacl.core.user.api.UserService;
 import me.gacl.dao.UserDao;
 import me.gacl.entity.User;
 

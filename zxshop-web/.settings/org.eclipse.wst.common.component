@@ -7,13 +7,13 @@
         <dependent-module archiveName="zxshop-service-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/zxshop-service/zxshop-service">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="zxshop-common-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/zxshop-common/zxshop-common">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="zxshop-dao-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/zxshop-dao/zxshop-dao">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="zxshop-coreapi-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/zxshop-coreapi/zxshop-coreapi">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="zxshop-common-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/zxshop-common/zxshop-common">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="zxshop-web"/>
