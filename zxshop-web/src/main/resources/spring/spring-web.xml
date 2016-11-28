@@ -43,8 +43,8 @@
         </property>
     </bean>
 	
-	
 	<aop:aspectj-autoproxy/>
   	<bean class="me.gacl.web.interceptor.UserPermissionCheckInterceptor" />
+	
 	
 </beans>

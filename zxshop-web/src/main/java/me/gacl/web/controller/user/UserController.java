@@ -5,13 +5,20 @@ import javax.servlet.http.HttpSession;
 
 import me.gacl.core.common.dto.GeneralResult;
 import me.gacl.core.user.api.UserService;
-import me.gacl.service.MyUserDetailService;
+import me.gacl.service.access.MyUserDetailService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationServiceException;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.context.SecurityContextImpl;
+import org.springframework.security.core.session.SessionInformation;
+import org.springframework.security.core.session.SessionRegistry;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,13 +35,21 @@ public class UserController {
 	private MyUserDetailService myUserDetailService;
 
 	@Autowired
-	private AuthenticationManager authenticationManager; // 这样就可以自动注入？oh
-															// ，mygod ,how can
-													// it do so?
+	private AuthenticationManager authenticationManager; 
 	
 	@ResponseBody
 	@RequestMapping("update")
-	public GeneralResult update() {
+	public GeneralResult update(HttpServletRequest request) {
+		SecurityContextImpl securityContextImpl = (SecurityContextImpl) request
+				.getSession().getAttribute("SPRING_SECURITY_CONTEXT");
+		
+		
+		
+//		WebAuthenticationDetails details = (WebAuthenticationDetails) securityContextImpl
+//				.getAuthentication().getDetails();request
+		
+		System.out.println("session.sessionId====="+request.getSession().getId());
+		
 		return new GeneralResult(1, "修改成功");
 	}
 	
@@ -64,15 +79,21 @@ public class UserController {
 
 		UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(
 				username, password);
-
-		Authentication authentication = authenticationManager
-				.authenticate(authRequest);
-
-		SecurityContextHolder.getContext().setAuthentication(authentication);
-		HttpSession session = request.getSession();
-		session.setAttribute("SPRING_SECURITY_CONTEXT",
-				SecurityContextHolder.getContext()); // 这个非常重要，否则验证后将无法登陆
-		 return new GeneralResult(1, "登陆成功");
+		try {
+			Authentication authentication = authenticationManager
+					.authenticate(authRequest);
+			SecurityContextHolder.getContext().setAuthentication(authentication);
+			HttpSession session = request.getSession();
+			System.out.println("session.id====="+session.getId());
+			session.setAttribute("SPRING_SECURITY_CONTEXT",
+					SecurityContextHolder.getContext()); // 这个非常重要，否则验证后将无法登陆
+			 return new GeneralResult(1, "登陆成功");
+		} catch(AuthenticationServiceException e){
+			return new GeneralResult(1, "用户未存在"); 
+		} catch (BadCredentialsException e) {
+			return new GeneralResult(1, "密码错误"); 
+		}
+	
 	}
 	
 	

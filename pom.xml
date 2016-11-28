@@ -24,7 +24,7 @@
 	</properties>
 
 	<dependencies>
-		
+
 
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -83,7 +83,7 @@
 			<version>${commons-collections.version}</version>
 		</dependency>
 
-		
+
 
 		<dependency>
 			<groupId>joda-time</groupId>
@@ -98,6 +98,9 @@
 		<module>zxshop-service</module>
 		<module>zxshop-web</module>
 		<module>zxshop-common</module>
+		<module>zxshop-admin</module>
+		<module>zxshop-admin-service</module>
+		<module>zxshop-admin-coreapi</module>
 	</modules>
 
 	<profiles>
