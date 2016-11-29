@@ -6,8 +6,12 @@
         http://www.springframework.org/schema/security  
         http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
-
-	<sec:http pattern="/login.jsp" security="none"></sec:http>
+	<sec:http pattern="/img/*.jpg" security="none" >	</sec:http>
+	<sec:http pattern="/img/*.png" security="none" >	</sec:http>
+	<sec:http pattern="/img/*.gif" security="none" >	</sec:http>
+	<sec:http pattern="/img/*.css" security="none" >	</sec:http>
+	<sec:http pattern="/img/*.js"  security="none" >	</sec:http>
+	<sec:http pattern="/*.jsp"  security="none" >	</sec:http>
 	<sec:http pattern="/user/login" security="none"></sec:http>
 
 	<sec:http auto-config="true" access-denied-page="/user/unAccess">
@@ -19,6 +23,7 @@
 		</sec:session-management>
 
 		<sec:custom-filter ref="myFilter" before="FILTER_SECURITY_INTERCEPTOR" />
+		
 	</sec:http>
 	<!--一个自定义的filter，必须包含 authenticationManager,accessDecisionManager,securityMetadataSource三个属性， 
 		我们的所有控制将在这三个类中实现，解释详见具体配置 -->
@@ -40,5 +45,6 @@
 	<bean id="myAccessDecisionManagerBean" class="me.gacl.service.access.MyAccessDecisionManager">
 	</bean>
 	<!--资源源数据定义，将所有的资源和权限对应关系建立起来，即定义某一资源可以被哪些角色访问 -->
-	<bean id="securityMetadataSource" class="me.gacl.service.access.MyInvocationSecurityMetadataSource" />
+	<bean id="securityMetadataSource"
+		class="me.gacl.service.access.MyInvocationSecurityMetadataSource" />
 </beans>  

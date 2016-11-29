@@ -43,6 +43,8 @@
         </property>
     </bean>
 	
+	<mvc:resources location="/test/" mapping="/**" />
+	
 	<aop:aspectj-autoproxy/>
   	<bean class="me.gacl.web.interceptor.UserPermissionCheckInterceptor" />
 	
