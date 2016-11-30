@@ -38,7 +38,9 @@ public class Productsku implements java.io.Serializable {
 	private Double price;
 	private String name;
 	private Timestamp createtime;
-
+	private String attributesb;
+	private String attributevaluesb;
+	
 	private Product product;
 	private List<ProductAttribute> saleattributes;		//商品销售属性
 	
@@ -97,16 +99,39 @@ public class Productsku implements java.io.Serializable {
 		this.createtime = createtime;
 	}
 
+	@Column(name = "attributesb", length = 100)
+	public String getAttributesb() {
+		return attributesb;
+	}
+	
+	public void setAttributesb(String attributesb) {
+		this.attributesb = attributesb;
+	}
+	@Column(name = "attributevaluesb", length = 100)
+	public String getAttributevaluesb() {
+		return attributevaluesb;
+	}
+
+
+	public void setAttributevaluesb(String attributevaluesb) {
+		this.attributevaluesb = attributevaluesb;
+	}
+
+
+
+	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@NotFound(action = NotFoundAction.IGNORE)
 	@JoinColumn(name="pid")
 	public Product getProduct() {
 		return product;
 	}
-
 	public void setProduct(Product product) {
 		this.product = product;
 	}
+	
+
+
 
 	@Where(clause = "is_sku = 1")
 	@OneToMany(mappedBy="productsku", fetch = FetchType.LAZY)
@@ -118,6 +143,10 @@ public class Productsku implements java.io.Serializable {
 		this.saleattributes = saleattributes;
 	}
 
+
+
+
+	
 	
 	
 }

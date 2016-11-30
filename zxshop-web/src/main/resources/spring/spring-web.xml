@@ -6,7 +6,7 @@
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="
         http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+        http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/context
@@ -43,10 +43,27 @@
         </property>
     </bean>
 	
-	<mvc:resources location="/test/" mapping="/**" />
+	
+		<!-- 配置js，css等静态文件直接映射到对应的文件夹，不被DispatcherServlet处理 -->
+	<mvc:resources location="/WEB-INF/resources/" mapping="/resources/**" />
+	
+	<!-- jsp页面解析器，当Controller返回XXX字符串时，先通过拦截器，然后该类就会在/WEB-INF/views/目录下，查找XXX.jsp文件 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	
+	<bean class="org.springframework.http.converter.StringHttpMessageConverter">  
+	    <constructor-arg value="UTF-8" index="0">  
+	    </constructor-arg>  
+	    <property name="supportedMediaTypes">  
+	        <list>  
+	            <value>text/plain;charset=UTF-8</value>  
+	        </list>
+	    </property>
+	</bean>  
 	
 	<aop:aspectj-autoproxy/>
-  	<bean class="me.gacl.web.interceptor.UserPermissionCheckInterceptor" />
-	
 	
 </beans>

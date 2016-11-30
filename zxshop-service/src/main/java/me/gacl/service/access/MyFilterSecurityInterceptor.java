@@ -26,7 +26,6 @@ public class MyFilterSecurityInterceptor extends AbstractSecurityInterceptor
 			FilterChain chain) throws IOException, ServletException {
 		FilterInvocation fi = new FilterInvocation(request, response, chain);
 		invoke(fi);
-		System.out.println("拦截器");
 	}
 
 	public FilterInvocationSecurityMetadataSource getSecurityMetadataSource() {

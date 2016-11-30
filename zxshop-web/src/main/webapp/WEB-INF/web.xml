@@ -12,7 +12,7 @@
         </param-value>
 	</context-param>
 
-		<!--Spring ContextLoaderListener -->
+	<!--Spring ContextLoaderListener -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
@@ -51,17 +51,17 @@
 	<!-- <filter> <filter-name>openEntityManagerInViewFilter</filter-name> <filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class> 
 		</filter> <filter-mapping> <filter-name>openEntityManagerInViewFilter</filter-name> 
 		<url-pattern>/*</url-pattern> </filter-mapping> -->
-		<!-- SpringSecurity 核心过滤器配置 -->
-	
-	 <filter>  
-        <filter-name>springSecurityFilterChain</filter-name>  
-        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>  
-    </filter>  
-    <filter-mapping>  
-        <filter-name>springSecurityFilterChain</filter-name>  
-        <url-pattern>/*</url-pattern>  
-    </filter-mapping>   
-  
+	<!-- SpringSecurity 核心过滤器配置 -->
+
+
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 
 	<servlet>
 		<servlet-name>spring</servlet-name>

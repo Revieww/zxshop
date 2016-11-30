@@ -2,6 +2,8 @@ package me.gacl.core.product.dto;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.List;
+import java.util.Map;
 
 public class ProductModel implements Serializable{
 
@@ -21,6 +23,11 @@ public class ProductModel implements Serializable{
 	private Integer visitcount;
 	private Integer reviewcount;
 	private Timestamp createtime;
+	
+	private Map<String, ProductskuValueModel> skuatt; 			//销售属性
+	
+	private List<SaleaAttriModel> saleaAttriModels; 			//销售属性
+	
 	public Integer getPid() {
 		return pid;
 	}
@@ -86,6 +93,18 @@ public class ProductModel implements Serializable{
 	}
 	public void setCreatetime(Timestamp createtime) {
 		this.createtime = createtime;
+	}
+	public List<SaleaAttriModel> getSaleaAttriModels() {
+		return saleaAttriModels;
+	}
+	public void setSaleaAttriModels(List<SaleaAttriModel> saleaAttriModels) {
+		this.saleaAttriModels = saleaAttriModels;
+	}
+	public Map<String, ProductskuValueModel> getSkuatt() {
+		return skuatt;
+	}
+	public void setSkuatt(Map<String, ProductskuValueModel> skuatt) {
+		this.skuatt = skuatt;
 	}
 	
 	

@@ -11,7 +11,9 @@
 	<sec:http pattern="/img/*.gif" security="none" >	</sec:http>
 	<sec:http pattern="/img/*.css" security="none" >	</sec:http>
 	<sec:http pattern="/img/*.js"  security="none" >	</sec:http>
-	<sec:http pattern="/*.jsp"  security="none" >	</sec:http>
+	<sec:http pattern="/*.js"  security="none" >	</sec:http>
+	<sec:http pattern="/*.css"  security="none" >	</sec:http>
+	<sec:http pattern="/test/*.jsp"  security="none" >	</sec:http>
 	<sec:http pattern="/user/login" security="none"></sec:http>
 
 	<sec:http auto-config="true" access-denied-page="/user/unAccess">
